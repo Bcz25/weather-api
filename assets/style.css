@@ -27,3 +27,11 @@ body {
     top: 30px;
     color: #98c7ee;
 }
+
+.prev-search {
+    background-color: #324349;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    color: #abb0b1;
+}
