@@ -4,11 +4,11 @@ const currentCity = document.getElementById('current-search');
 const searchHistory = document.getElementById('search-history');
 const cityNameInput = document.getElementById('city-input');
 const savedCity = localStorage.getItem('savedCity');
-if (savedCity) {
-    cityNameInput.value = savedCity;
-}
 
 function recentSearches(){
+    if (savedCity) {
+        cityNameInput.value = savedCity;
+    }
     const cityName = cityNameInput.value.trim();
     console.log(cityName);
 
