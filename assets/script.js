@@ -5,7 +5,8 @@ const searchHistory = document.getElementById('search-history');
 const cityNameInput = document.getElementById('city-input');
 const savedCity = localStorage.getItem('savedCity');
 
-function recentSearches(){
+function recentSearches(event){
+    event.preventDefault();
     if (savedCity) {
         cityNameInput.value = savedCity;
     }
