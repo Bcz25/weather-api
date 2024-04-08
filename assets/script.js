@@ -5,7 +5,7 @@ const cityName = document.getElementById('city-input');
 const savedCity = localStorage.getItem('savedCity');
 const searchHistory = document.getElementById('search-history');
 if (savedCity) {
-    cityNameInput.value = savedCity;
+    cityName.value = savedCity;
 }
 
 function getAPI() {
