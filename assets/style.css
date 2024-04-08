@@ -1,6 +1,6 @@
 body {
-    margin: 0;
-    padding: 0;
+    margin: 5px;
+    padding: 5px;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     background-color: #abb0b1;
@@ -13,13 +13,16 @@ body {
     padding: 5px;
     border-radius: 3px;
     color: #abb0b1;
+    height: 100px
 }
 
 #header-container a {
     text-decoration: none;
+    color: #98c7ee;
 }
 
 #header {
-    position: fixed;
-    left: 50;
+    position: absolute;
+    left: 75px;
+    top: 30px;
 }
