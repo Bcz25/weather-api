@@ -3,6 +3,7 @@ const submitBtn = document.getElementById('submitBtn');
 const currentCity = document.getElementById('current-search');
 const cityName = document.getElementById('city-input');
 const savedCity = localStorage.getItem('savedCity');
+const searchHistory = document.getElementById('search-history');
 if (savedCity) {
     cityNameInput.value = savedCity;
 }
@@ -13,19 +14,20 @@ function getAPI() {
 
     fetch(requestUrl)
         .then(function (response) {
-            if (!response.ok) {
-                throw new Error('Network Error - Please try again');
-            }
             return response.json();
         })
         .then(function (search) {
             console.log(search);
-            localStorage.setItem('savedCity', cityName);
-
-            const listItem = document.createElement('li');
-            listItem.textContent = cityName;
-            currentCity.appendChild(listItem);
         })
 }
 
+function recentSearches(){
+    console.log(savedCity)
+    localStorage.setItem('savedCity', cityName);
+    const listItem = document.createElement('li');
+    listItem.textContent = cityName;
+    listItem.classList.add('prev-search');
+    searchHistory.appendChild(listItem);
+    return;
+}
 submitBtn.addEventListener('click', getAPI);
