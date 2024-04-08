@@ -30,4 +30,4 @@ function recentSearches(){
     searchHistory.appendChild(listItem);
     return;
 }
-submitBtn.addEventListener('click', getAPI);
+submitBtn.addEventListener('click', recentSearches);
