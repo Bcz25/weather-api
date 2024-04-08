@@ -12,7 +12,7 @@
 </head>
 <body>
     <div>
-        <nav class="navbar bg-info">
+        <nav class="navbar" id="header">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cloud-sun-fill" viewBox="0 0 16 16">
@@ -22,10 +22,19 @@
                     <h1>Weather Dashboard</h1>
                 </a>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <h2>Search for a City:</h2>
+                    <input class="form-control me-2" type="search" placeholder="Salt Lake City" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <ul class="list-group" id="search-history"></ul>
+          </div>
+          <div class="col-md-8" id="current-search"></div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

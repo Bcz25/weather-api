@@ -4,10 +4,13 @@ body {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     background-color: #abb0b1;
-    color: #1f1f20;
+    color: #2e2e31;
 }
 
-.header {
+#header {
     background-color: #324665;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 3px;
     
 }
