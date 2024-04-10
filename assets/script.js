@@ -4,14 +4,15 @@ const currentCity = document.getElementById('current-search');
 const searchHistoryElement = document.getElementById('search-history');
 const cityNameInput = document.getElementById('city-input');
 const newCity = localStorage.getItem('newCity');
-let searchHistory = localStorage.getItem('searchHistory') ? JSON.parse(localStorage.getItem('searchHistory')) : [];
+let searchHistory = localStorage.getItem('searchHistory') 
+let searchHistoryList = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
 
 function recentSearches(){
     if (!searchHistory) {
     return;
     }
-    searchHistory.forEach(searchItem => {
+    searchHistoryList.forEach(searchItem => {
         const listItem = document.createElement('li');
         listItem.textContent = searchItem;
         listItem.classList.add('prev-search');
@@ -46,6 +47,6 @@ function newSearch(event){
    return;
 }
 
-submitBtn.addEventListener('click', newSearch, saveSearch);
-
+submitBtn.addEventListener('click', newSearch);
+submitBtn.addEventListener('click', saveSearch);
 document.addEventListener('DOMContentLoaded' , recentSearches)
