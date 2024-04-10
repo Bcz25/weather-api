@@ -1,24 +1,51 @@
 const APIKey = "d819c0f02622027c482907b6666513c6";
 const submitBtn = document.getElementById('submitBtn');
 const currentCity = document.getElementById('current-search');
-const searchHistory = document.getElementById('search-history');
+const searchHistoryElement = document.getElementById('search-history');
 const cityNameInput = document.getElementById('city-input');
-const savedCity = localStorage.getItem('savedCity');
+const newCity = localStorage.getItem('newCity');
+let searchHistory = localStorage.getItem('searchHistory') ? JSON.parse(localStorage.getItem('searchHistory')) : [];
 
-function recentSearches(event){
-    event.preventDefault();
-    if (savedCity) {
-        cityNameInput.value = savedCity;
-    }
-    const cityName = cityNameInput.value.trim();
-    console.log(cityName);
 
-    localStorage.setItem('savedCity', cityName);
-
-    const listItem = document.createElement('li');
-    listItem.textContent = cityName;
-    listItem.classList.add('prev-search');
-    searchHistory.appendChild(listItem);
+function recentSearches(){
+    if (!searchHistory) {
     return;
+    }
+    searchHistory.forEach(searchItem => {
+        const listItem = document.createElement('li');
+        listItem.textContent = searchItem;
+        listItem.classList.add('prev-search');
+        searchHistoryElement.appendChild(listItem);
+    });
 }
-submitBtn.addEventListener('click', recentSearches);
+
+function saveSearch(cityName) {
+    searchHistory.push(cityName);
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+}
+
+function newSearch(event){
+    event.preventDefault();
+    if (newCity) {
+        cityNameInput.value = newCity;
+    }
+    const citySearch = cityNameInput.value.trim();
+    console.log(citySearch);
+
+    localStorage.setItem('newCity', citySearch);
+
+    if (citySearch) {
+        const listItem = document.createElement('li');
+        listItem.textContent = citySearch;
+        listItem.classList.add('prev-search');
+        searchHistoryElement.appendChild(listItem);
+    }
+   cityNameInput.value = "";
+   localStorage.removeItem('newCity');
+
+   return;
+}
+
+submitBtn.addEventListener('click', newSearch, saveSearch);
+
+document.addEventListener('DOMContentLoaded' , recentSearches)
