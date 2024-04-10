@@ -21,8 +21,8 @@ function recentSearches(){
 }
 
 function saveSearch(cityName) {
-    searchHistory.push(cityName);
-    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+    searchHistoryList.push(cityName);
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistoryList));
 }
 
 function newSearch(event){
