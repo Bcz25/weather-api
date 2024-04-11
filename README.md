@@ -7,4 +7,4 @@ This webpage provides an easy way to search for any city in the USA and receive 
 All web browsers, simply insert https://bcz25.github.io/weather-dashboard/ into broswer and start searching.
 
 ## Usage
-![Screenshot 2024-04-11 at 1.26.30 PM.png](https://github.com/Bcz25/weather-dashboard/blob/main/Screenshot%202024-04-11%20at%201.26.30%E2%80%AFPM.png))
+![Screenshot 2024-04-11 at 1.26.30 PM.png](https://github.com/Bcz25/weather-dashboard/blob/main/Screenshot%202024-04-11%20at%201.26.30%E2%80%AFPM.png)
