@@ -21,14 +21,23 @@ function saveSearch() {
 
 function newSearch(event){
     event.preventDefault();
+    if (newCity) {
+        cityNameInput.value = newCity;
+    }
     const citySearch = cityNameInput.value.trim();
-    searchHistory.push(citySearch);
-    saveSearch();
-    const listItem = document.createElement('li');
-    listItem.textContent = citySearch;
-    listItem.classList.add('prev-search');
-    searchHistoryElement.appendChild(listItem);
-    cityNameInput.value = "";
+    console.log(citySearch);
+
+    localStorage.setItem('newCity', citySearch);
+
+    if (citySearch) {
+        const listItem = document.createElement('li');
+        listItem.textContent = citySearch;
+        listItem.classList.add('prev-search');
+        searchHistoryElement.appendChild(listItem);
+    }
+   cityNameInput.value = "";
+   saveSearch();
+   localStorage.removeItem('newCity');
 }
 
 submitBtn.addEventListener('click', newSearch);
