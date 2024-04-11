@@ -28,7 +28,7 @@ body {
     color: #9f5d18fa;
 }
 
-#search-history{
+#search-history {
     border: 3px solid #9f5d18fa;
 }
 .prev-search {
@@ -40,7 +40,10 @@ body {
     color: #abb0b1;
 }
 
-.current-search{
+.prev-search:active {
+    box-shadow: none
+}
+.current-search {
     border: 3px solid #9f5d18fa;
     border-radius: 3px;
     box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.3);
