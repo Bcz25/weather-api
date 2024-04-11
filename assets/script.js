@@ -3,8 +3,8 @@ const submitBtn = document.getElementById('submitBtn');
 const currentCity = document.getElementById('current-search');
 const searchHistoryElement = document.getElementById('search-history');
 const cityNameInput = document.getElementById('city-input');
-const newCity = localStorage.getItem('newCity');
-let searchHistory = [];
+let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
 
 function recentSearches(){
     searchHistory.forEach(searchItem => {
@@ -21,23 +21,15 @@ function saveSearch() {
 
 function newSearch(event){
     event.preventDefault();
-    if (newCity) {
-        cityNameInput.value = newCity;
-    }
     const citySearch = cityNameInput.value.trim();
-    console.log(citySearch);
+    searchHistory.push(citySearch);
+    saveSearch();
+    const listItem = document.createElement('li');
+    listItem.textContent = citySearch;
+    listItem.classList.add('prev-search');
+    searchHistoryElement.appendChild(listItem);
+    cityNameInput.value = "";
 
-    localStorage.setItem('newCity', citySearch);
-
-    if (citySearch) {
-        const listItem = document.createElement('li');
-        listItem.textContent = citySearch;
-        listItem.classList.add('prev-search');
-        searchHistoryElement.appendChild(listItem);
-    }
-   cityNameInput.value = "";
-   saveSearch();
-   localStorage.removeItem('newCity');
 }
 
 submitBtn.addEventListener('click', newSearch);
