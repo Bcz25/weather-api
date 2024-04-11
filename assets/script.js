@@ -65,10 +65,10 @@ function forecastWeather(event){
         })
         .then(data => {
             const forecasts = processForecastData(data);
-            container.innerHTML = ''; // Clear previous content
+            container.innerHTML = ''; 
             forecasts.forEach(forecast => {
                 const forecastCard = createForecastCard(forecast);
-                container.appendChild(forecastCard); // Append forecast card to the container
+                container.appendChild(forecastCard); 
             });
         })
         .catch(error => {
@@ -78,19 +78,19 @@ function forecastWeather(event){
 
 function processForecastData(data) {
     const forecasts = [];
-    // Get the current date to compare with forecast dates
+    
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
 
-    // Iterate over each forecast entry
+  
     data.list.forEach(item => {
-        // Get the date of the forecast entry
+       
         const forecastDate = new Date(item.dt_txt);
         const forecastDay = forecastDate.getDate();
 
-        // If the forecast date is different from the current date and occurs at the same time (e.g., 12:00:00), add it to the forecasts array
+        
         if (forecastDay !== currentDay && forecastDate.getHours() === 12) {
-            // Process the forecast entry and extract relevant information
+            
             const formattedDate = forecastDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             const date = item.dt_txt;
             const maxTemp = item.main.temp_max;
